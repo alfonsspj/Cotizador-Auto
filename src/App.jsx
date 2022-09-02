@@ -1,10 +1,13 @@
+import { CotizadorProvider } from './context/CotizadorProvider'
+import AppSeguro from './components/AppSeguro'
 
 function App() {
 
   return (
-    <>
-      <h1>App</h1>
-    </>
+    <CotizadorProvider>
+      {/* los datos del provider van a estar disponibles en cualquier componente de aqui */}
+      <AppSeguro />
+    </CotizadorProvider>
   )
 }
 
