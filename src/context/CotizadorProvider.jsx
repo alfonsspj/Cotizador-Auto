@@ -1,14 +1,28 @@
-import { createContext } from 'react';
+import { useState, createContext } from 'react';
 
 const CotizadorContext = createContext()
 
 // provider es el lugar donde vas a definir el state (cual es la fuente de los datos)
 const CotizadorProvider = ({children}) => {
 
+    const [datos, setDatos] = useState({
+        marca: '',
+        year: '',
+        plan: ''
+    })
+
+    const handleChangeDatos = e => {
+        setDatos({
+            ...datos, 
+            [e.target.name] : e.target.value
+        })
+    }
+
     return(
         <CotizadorContext.Provider
             value={{
-                
+                datos,
+                handleChangeDatos
             }}
         >
             {children}
